@@ -79,16 +79,16 @@ const hobbies = [
 
 const AboutSection = () => {
     return (
-        <section className='py-32'>
-            <h1 className='tracking-wide text-2xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20'>
+        <section className='py-32 z-10'>
+            <h1 className='tracking-wide text-2xl sm:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20'>
                 About me
             </h1>
 
-            <div className='flex flex-col justify-start gap-14'>
+            <div className='flex flex-col lg:flex-row items-center gap-14 lg:gap-5 xl:gap-8 relative z-10'>
                 {/* Card */}
-                <div className='w-full'>
-                    <div className='sm:w-3/4'>
-                        <div className='h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b]/90'>
+                <div className='w-full relative z-30 lg:w-1/2'>
+                    <div className='max-w-[360px] md:max-w-[400px] lg:max-w-[364px] xl:max-w-[450px] mx-auto sm:mx-0 sm:w-3/4 lg:w-full'>
+                        <div className='h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b]'>
                             <CardHeader icon={<FaTools className='size-6' />} title='My Toolbox' desc='Explore the technologies I use to craft my works.' />
 
                             <div className='my-5 flex flex-none py-0.5 items-center gap-5 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]'>
@@ -113,9 +113,15 @@ const AboutSection = () => {
                     </div>
                 </div>
 
-                <div className='w-full sm:flex sm:justify-end'>
-                    <div className='sm:w-3/4 h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b]/90 flex flex-col
-                items-start gap-5'>
+
+                <div className='hidden sm:block lg:hidden absolute z-20 w-96 h-96 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-emerald-300/30'>
+                    <div className='absolute z-20 w-80 h-80 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-sky-300/30'>
+                    </div>
+                </div>
+
+                <div className='w-full flex justify-center sm:justify-end lg:justify-center lg:w-1/2 relative z-30'>
+                    <div className='w-full max-w-[360px] md:max-w-[340px] sm:w-3/4 lg:w-full lg:max-w-[364px] xl:max-w-[450px] h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] flex flex-col
+                items-center gap-5'>
                         <CardHeader icon={<BiCycling className='size-7' />} title='Apart from code' desc='Know what I do besides programming' />
 
                         <div className='relative w-full h-full'>

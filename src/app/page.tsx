@@ -1,5 +1,7 @@
 'use client'
 import AboutSection from "./Components/AboutSection";
+import ContactSection from "./Components/ContactSection";
+import FooterSection from "./Components/FooterSection";
 import { Header } from "./Components/Header";
 import HeroSection from "./Components/HeroSection";
 import ProjectsSection from "./Components/ProjectsSection";
@@ -16,6 +18,8 @@ export default function Home() {
             <TapeSection />
             <div className="w-3/4 max-w-3/4 h-full mx-auto">
                 <AboutSection />
+                <ContactSection />
+                <FooterSection />
             </div>
         </div >
     );
