@@ -24,6 +24,18 @@ const projects = [
             { title: 'Simple and Minimal UI' },
             { title: 'First internship task' },
         ]
+    }, {
+        id: 3,
+        main: 'Internship Task',
+        title: "Remaking the ABSSoft's Homepage",
+        year: '2024',
+        imgSrc: '/AbsSoftHomepage.png',
+        link: 'https://www.abssoft.com.np',
+        descriptionArray: [
+            { title: 'Partial remaking of the Homepage' },
+            { title: 'Final internship work' },
+        ]
     },
+
 ];
 export default projects;

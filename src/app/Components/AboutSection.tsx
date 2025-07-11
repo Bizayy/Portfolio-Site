@@ -79,8 +79,8 @@ const hobbies = [
 
 const AboutSection = () => {
     return (
-        <section className='py-32 z-10'>
-            <h1 className='tracking-wide text-2xl sm:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20'>
+        <section className='py-20 z-10'>
+            <h1 className='tracking-wide text-2xl md:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20'>
                 About me
             </h1>
 
@@ -120,7 +120,7 @@ const AboutSection = () => {
                 </div>
 
                 <div className='w-full flex justify-center sm:justify-end lg:justify-center lg:w-1/2 relative z-30'>
-                    <div className='w-full max-w-[360px] md:max-w-[340px] sm:w-3/4 lg:w-full lg:max-w-[364px] xl:max-w-[450px] h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] flex flex-col
+                    <div className='w-full max-w-[360px] md:max-w-[400px] sm:w-3/4 lg:w-full lg:max-w-[364px] xl:max-w-[450px] h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] flex flex-col
                 items-center gap-5'>
                         <CardHeader icon={<BiCycling className='size-7' />} title='Apart from code' desc='Know what I do besides programming' />
 

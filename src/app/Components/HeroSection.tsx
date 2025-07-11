@@ -25,8 +25,9 @@ const HeroSection = () => {
                 </div>
             </div>
             {/* Top glow */}
+            {/*
             <div className="w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center,rgba(242,224,223,0.9)_0%,rgba(242,224,223,0.3)_40%,transparent_60%)]
-                absolute -left-60 xl:-left-40 -top-[105%] sm:-top-[110%] lg:-top-[170%]" />
+                absolute -left-60 xl:-left-40 -top-[105%] sm:-top-[110%] lg:-top-[170%]" />*/}
             <div className="bg-[url(/grain.jpg)] absolute inset-0 -z-30 opacity-5 " />
             <HeroOrbit />
         </div>

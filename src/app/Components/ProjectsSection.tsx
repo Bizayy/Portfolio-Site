@@ -9,13 +9,13 @@ const ProjectsSection = () => {
     return (
         <section className='w-full mt-48 xl:mt-40'>
             <h1 className='text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide'>MY PROJECTS</h1>
-            <div className='py-10 text-white/90 flex flex-col items-center justify-center gap-18'>
+            <div className='pb-10 pt-20 text-white/90 flex flex-col items-center justify-center gap-18'>
                 {
                     projects.map((project) => (
-                        <div key={project.id} className='w-full max-w-[432px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
+                        <div key={project.id} className='w-full h-[590px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
                             drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 relative lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8 overflow-hidden'>
 
-                            <div className='lg:w-[35%]'>
+                            <div className='lg:w-[40%] h-full'>
 
                                 <h2 className='bg-gradient-to-r from-emerald-200 to-sky-400 text-transparent bg-clip-text font-semibold uppercase tracking-wide
                                 inline-flex gap-2 md:text-lg lg:text-base xl:text-xl'>
@@ -49,8 +49,8 @@ const ProjectsSection = () => {
                                 </Link>
                             </div>
 
-                            <div className='hidden lg:block w-[60%] ml-20 -mr-80'>
-                                <Image src={project.imgSrc} alt={project.title} width={1000} height={1000} className=' rounded-lg image-contain' />
+                            <div className='hidden lg:block w-[60%] h-full ml-10 -mr-80'>
+                                <Image src={project.imgSrc} alt={project.title} width={1000} height={1000} className='rounded-lg image-contain' />
                             </div>
 
                         </div>
