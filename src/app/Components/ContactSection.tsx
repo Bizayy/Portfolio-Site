@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { HiOutlineArrowTopRightOnSquare } from 'react-icons/hi2'
-const ContactSection = () => {
+const ContactSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
     return (
-        <section className='my-20 p-6 lg:p-7 xl:p-9 flex flex-col md:flex-row items-center gap-6 bg-gradient-to-br from-[#2b2b2b]/90 to-white/20 rounded-3xl
+        <section ref={scrollRef} className='my-20 p-6 lg:p-7 xl:p-9 flex flex-col md:flex-row items-center gap-6 bg-gradient-to-br from-[#2b2b2b]/90 to-white/20 rounded-3xl
             text-black/90 relative overflow-hidden z-0'>
             <div className='bg-[url(/grain.jpg)] absolute -z-10 opacity-5 inset-0' />
             <div className='flex flex-col justify-center text-center gap-2 md:w-2/3 md:text-left text-white/90'>

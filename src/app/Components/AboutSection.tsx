@@ -77,9 +77,9 @@ const hobbies = [
     }
 ]
 
-const AboutSection = () => {
+const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
     return (
-        <section className='py-20 z-10'>
+        <section ref={scrollRef} className='my-10 py-10 z-10'>
             <h1 className='tracking-wide text-2xl md:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20'>
                 About me
             </h1>

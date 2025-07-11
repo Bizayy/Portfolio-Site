@@ -5,9 +5,9 @@ import Image from 'next/image'
 import { HiOutlineArrowTopRightOnSquare } from 'react-icons/hi2'
 import { GoCheckCircle } from 'react-icons/go'
 
-const ProjectsSection = () => {
+const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
     return (
-        <section className='w-full mt-48 xl:mt-40'>
+        <section ref={scrollRef} className='w-full mt-48 xl:mt-40'>
             <h1 className='text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide'>MY PROJECTS</h1>
             <div className='pb-10 pt-20 text-white/90 flex flex-col items-center justify-center gap-18'>
                 {
