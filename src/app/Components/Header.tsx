@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+
 export const Header = ({ onScrollToProjects, onScrollToAbout, onScrollToContact }: {
     onScrollToProjects: () => void;
     onScrollToAbout: () => void;
     onScrollToContact: () => void
 }) => {
+
 
     const navItems = [
         {
@@ -22,8 +24,8 @@ export const Header = ({ onScrollToProjects, onScrollToAbout, onScrollToContact 
 
     ]
     return (
-        <nav className='rounded-4xl mt-4 sm:mt-8 max-w-[500px] md:max-w-[600px] xl:max-w-[700px] mx-auto px-4 h-12 lg:h-14 bg-white/20 text-white/80 sm:flex sm:items-center sm:justify-between
-            sm:gap-6 z-10'>
+        <nav className={`rounded-4xl mt-4 sm:mt-8 max-w-[500px] md:max-w-[600px] xl:max-w-[700px] mx-auto px-4 h-12 lg:h-14 bg-white/20 text-white/80 sm:flex sm:items-center sm:justify-between
+            sm:gap-6 z-50 animate-slideDown`}>
             <Link href='#home' className='hidden sm:block cursor-pointer'>
                 <h1 className='text-xl xl:text-2xl font-semibold z-10 text-emerald-200 hover:bg-gradient-to-r hover:from-emerald-300 hover:to-sky-400 hover:text-transparent
                     hover:bg-clip-text'>Bizayyy</h1>

@@ -6,14 +6,16 @@ import { HiOutlineArrowTopRightOnSquare } from 'react-icons/hi2'
 import { GoCheckCircle } from 'react-icons/go'
 
 const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
+
     return (
         <section ref={scrollRef} className='w-full mt-48 xl:mt-40'>
-            <h1 className='text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide'>MY PROJECTS</h1>
-            <div className='pb-10 pt-20 text-white/90 flex flex-col items-center justify-center gap-18'>
+            <h1 className='text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide animate-slideDown'>MY PROJECTS</h1>
+            <div className='pb-10 pt-20 text-white/90'>
                 {
                     projects.map((project) => (
-                        <div key={project.id} className='w-full h-[590px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
-                            drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 relative lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8 overflow-hidden'>
+                        <div key={project.id} className='w-full my-20 h-[670px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
+                            drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 overflow-clip lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8
+                            mx-auto animate-slideUp'>
 
                             <div className='lg:w-[40%] h-full'>
 
@@ -43,7 +45,7 @@ const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
                                     }
                                 </ul>
                                 <Link href={project.link} className='inline-flex items-center justify-center gap-2 w-full px-auto py-3 text-lg font-semibold
-                                rounded-xl bg-white/90 text-gray-900/90'>
+                                rounded-xl bg-white/90 text-gray-900/90 hover:scale-[1.05] transition-all duration-500'>
                                     Visit site
                                     <span><HiOutlineArrowTopRightOnSquare /></span>
                                 </Link>
