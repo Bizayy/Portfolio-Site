@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import CardHeader from './CardHeader'
 import { FaTools } from 'react-icons/fa'
 import JavaScriptIcon from '@/assets/icons/square-js.svg'
@@ -9,7 +9,6 @@ import GithubIcon from '@/assets/icons/github.svg'
 import ChromeIcon from '@/assets/icons/chrome.svg'
 import TechIcon from './TechIcon'
 import { BiCycling } from 'react-icons/bi';
-// import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { Draggable, InertiaPlugin } from 'gsap/all'
 
@@ -86,6 +85,13 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
     const containerRef = useRef<HTMLDivElement>(null);
     const itemRefs = useRef<HTMLDivElement[]>([]);
 
+    const headingRef = useRef<HTMLDivElement | HTMLHeadingElement>(null);
+    const [isHeadingVisible, setIsHeadingVisible] = useState(false);
+    const firstCardRef = useRef<HTMLDivElement>(null);
+    const [isFirstCardVisible, setIsFirstCardVisible] = useState(false);
+    const secondCardRef = useRef<HTMLDivElement>(null);
+    const [isSecondCardVisible, setIsSecondCardVisible] = useState(false);
+
 
     useEffect(() => {
         if (containerRef.current && itemRefs.current) {
@@ -96,6 +102,20 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
                 inertia: true,
             });
         }
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsHeadingVisible(true);
+                    setIsFirstCardVisible(true);
+                    setIsSecondCardVisible(true)
+                }
+            },
+            { threshold: 0.3 }
+        );
+        if (headingRef.current) observer.observe(headingRef.current);
+        return () => {
+            if (headingRef.current) observer.unobserve(headingRef.current);
+        };
     }, []);
 
 
@@ -103,18 +123,21 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
 
     return (
         <section ref={scrollRef} className='my-10 py-10 z-10'>
-            <h1 className='tracking-wide text-2xl md:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20 animate-slideDown'>
+            <h1 ref={headingRef} className={`tracking-wide text-2xl md:text-3xl w-full text-center font-semibold uppercase [word-spacing:8px] my-20 opacity-0
+                ${isHeadingVisible ? "animate-slideDown opacity-100" : ""}`}>
                 About me
             </h1>
 
             <div className='flex flex-col lg:flex-row items-center gap-14 lg:gap-5 xl:gap-8 relative z-10'>
                 {/* Card */}
                 <div className='w-full relative z-30 lg:w-1/2'>
-                    <div className='max-w-[360px] md:max-w-[400px] lg:max-w-[364px] xl:max-w-[450px] mx-auto sm:mx-0 sm:w-3/4 lg:w-full'>
-                        <div className='h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] animate-slideRight'>
+                    <div ref={firstCardRef} className={`max-w-[360px] md:max-w-[400px] lg:max-w-[364px] xl:max-w-[450px] mx-auto sm:mx-0 sm:w-3/4 lg:w-full opacity-0
+${isFirstCardVisible ? "opacity-100 animate-slideRight" : ""}`}>
+                        <div className='h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b]'>
                             <CardHeader icon={<FaTools className='size-6' />} title='My Toolbox' desc='Explore the technologies I use to craft my works.' />
 
-                            <div className="flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                            <div className={`flex [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+                                            `}>
                                 <div className='my-5 flex flex-none py-0.5 items-center gap-5 pr-5 animate-tapeMotion'>
                                     {
                                         [...new Array(2)].fill(0).map((_, idx) => (
@@ -130,7 +153,7 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
                                     }
                                 </div>
                             </div>
-                            <div className='flex my-5 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] pr-5'>
+                            <div className={`flex my-5 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] pr-5`}>
                                 <div className='flex flex-none py-0.5 gap-5 pr-5 animate-reverseTapeMotion [animation-duration:15s]' >
                                     {
                                         [...new Array(2)].fill(0).map((_, idx) => (
@@ -160,8 +183,8 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
                 </div>
 
                 <div className='w-full flex justify-center sm:justify-end lg:justify-center lg:w-1/2 relative z-40'>
-                    <div className='w-full max-w-[360px] md:max-w-[400px] sm:w-3/4 lg:w-full lg:max-w-[364px] xl:max-w-[450px] h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] flex flex-col
-                items-center gap-5 animate-slideLeft'>
+                    <div ref={secondCardRef} className={`w-full max-w-[360px] md:max-w-[400px] sm:w-3/4 lg:w-full lg:max-w-[364px] xl:max-w-[450px] h-[320px] rounded-lg border border-emerald-800/80 drop-shadow-white drop-shadow-md/25 py-4 bg-[#2b2b2b] flex flex-col
+                items-center gap-5 opacity-0 ${isSecondCardVisible ? "opacity-100 animate-slideLeft" : ""}`}>
                         <CardHeader icon={<BiCycling className='size-7' />} title='Apart from code' desc='Know what I do besides programming' />
 
                         <div ref={containerRef} className=' relative w-full h-full'>

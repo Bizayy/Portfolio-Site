@@ -1,21 +1,76 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import projects from '../Utils/projects'
 import Link from 'next/link'
 import Image from 'next/image'
 import { HiOutlineArrowTopRightOnSquare } from 'react-icons/hi2'
 import { GoCheckCircle } from 'react-icons/go'
+import { inViewFunction } from '../Utils/inViewFunction'
 
 const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
 
+    const headingRef = useRef<HTMLHeadingElement>(null);
+    const [isHeadingVisible, setIsHeadingVisible] = useState(false);
+
+    const divRefs = useRef<HTMLDivElement[]>([]);
+    divRefs.current = [];
+
+    const [inViewStates, setInViewStates] = useState<boolean[]>(
+        new Array(projects.length).fill(false)
+    );
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.target === headingRef.current && entry.isIntersecting) {
+                    setIsHeadingVisible(true);
+                }
+                const refIndex = divRefs.current.findIndex((ref) => ref === entry.target);
+                if (entry.isIntersecting && refIndex != -1) {
+                    setInViewStates((prev) => {
+                        let updatedStateArray = [...prev];
+                        updatedStateArray[refIndex] = true;
+                        console.log("updatedStateArray: ", updatedStateArray);
+                        return updatedStateArray;
+                    })
+                }
+                console.log("inViewStates:", inViewStates);
+
+            })
+        }, { threshold: 0.3 });
+
+        if (headingRef.current) observer.observe(headingRef.current);
+
+        divRefs.current.forEach((eachDivRef) => {
+            if (eachDivRef) observer.observe(eachDivRef)
+        })
+        //Cleanup
+
+        return () => {
+
+            if (headingRef.current) observer.unobserve(headingRef.current);
+
+            divRefs.current.forEach((eachDivRef) => {
+                if (eachDivRef) observer.unobserve(eachDivRef)
+            })
+        }
+
+    }, []);
+
     return (
         <section ref={scrollRef} className='w-full mt-48 xl:mt-40'>
-            <h1 className='text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide animate-slideDown'>MY PROJECTS</h1>
-            <div className='pb-10 pt-20 text-white/90'>
+            <h1 ref={headingRef} className={`text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide opacity-0
+            ${isHeadingVisible ? 'opacity-100 animate-slideDown' : ''}`}>MY PROJECTS</h1>
+            <div className='pb-10 pt-10 text-white/90'>
                 {
-                    projects.map((project) => (
-                        <div key={project.id} className='w-full my-20 h-[670px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
+                    projects.map((project, idx) => (
+                        <div key={project.id} ref={
+                            (el) => {
+                                if (el) divRefs.current[idx] = el;
+                            }
+                        } className={`w-full my-20 h-[670px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
                             drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 overflow-clip lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8
-                            mx-auto animate-slideUp'>
+                            mx-auto z-20 ${inViewStates[idx] ? "opacity-100 animate-slideUp" : ""}`}>
 
                             <div className='lg:w-[40%] h-full'>
 
