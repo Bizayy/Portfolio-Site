@@ -2,11 +2,8 @@ import Image from "next/image"
 import { FaRegHandshake } from "react-icons/fa"
 import { GoArrowDown } from "react-icons/go"
 import HeroOrbit from "./HeroOrbit"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import { useRef } from "react"
+import { motion } from "framer-motion"
 
-gsap.registerPlugin(useGSAP);
 
 const HeroSection = () => {
 
@@ -14,35 +11,36 @@ const HeroSection = () => {
     const renderLetters = (name: string) => {
         if (!name) return;
         return name.split('').map((letter, idx) => (
-            <span key={idx} className="inline-block animate-title uppercase opacity-0">{letter === " " ? "\u00A0" : letter}</span>
+            <motion.span key={idx} className="inline-block uppercase"
+                initial={{
+                    x: -100,
+                    opacity: 0,
+                    rotate: -10,
+                }}
+                animate={{
+                    x: 0,
+                    opacity: 1,
+                    rotate: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    ease: [0.68, -0.55, 0.265, 1.55], // Similar to elastic.out
+                    delay: idx * 0.2, // Stagger effect
+                }}
+                style={{
+                    transformOrigin: 'left top'
+                }}
+            >
+                {letter === " " ? "\u00A0" : letter}
+            </motion.span>
         ));
 
     }
 
-    const containerRef = useRef<HTMLHeadingElement>(null);
-    useGSAP(() => {
-
-        gsap.fromTo('.animate-title',
-            {
-                x: -100,
-                opacity: 0,
-                rotate: -10,
-            }, {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            rotate: 0,
-            ease: "elastic.out(1,0.2)",
-            transformOrigin: 'left top',
-            stagger: {
-                each: 0.2,
-            },
-        })
-    }, { scope: containerRef })
 
 
     return (
-        <section ref={containerRef} className='w-full mt-32 md:mt-36 xl:mt-40 relative'>
+        <section className='w-full mt-32 md:mt-36 xl:mt-40 relative'>
             <h1 className="text-[50px] leading-14 text-center text-white/90 md:text-left sm:text-[55px] md:text-[64px] xl:text-[84px] tracking-wide font-bold
                 w-full flex flex-col items-center lg:flex-row">
                 <div className="">

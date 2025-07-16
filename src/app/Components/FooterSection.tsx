@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 const links = [
     {
@@ -17,27 +17,23 @@ const links = [
     },
 ]
 const FooterSection = () => {
-    const containerRef = useRef<HTMLDivElement | HTMLHeadingElement>(null);
-    const [isContainerVisible, setIsContainerVisible] = useState(false);
 
-    useEffect(() => {
-
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsContainerVisible(true);
-                }
-            },
-            { threshold: 0.3 }
-        );
-        if (containerRef.current) observer.observe(containerRef.current);
-        return () => {
-            if (containerRef.current) observer.unobserve(containerRef.current);
-        };
-    }, [])
     return (
-        <div ref={containerRef} className={`border-t border-t-emerald-600/80 mt-20 p-5 flex flex-col sm:flex-row items-center justify-between gap-10 opacity-0
-${isContainerVisible ? "opacity-100 animate-slideUp" : ""}`}>
+        <motion.div
+            initial={{
+                y: 30,
+                opacity: 0,
+            }}
+            whileInView={{
+                y: 0,
+                opacity: 1,
+            }}
+            transition={{
+                duration: 0.6,
+                ease: 'easeIn',
+            }}
+            viewport={{ once: true }}
+            className={`border-t border-t-emerald-600/80 mt-20 p-5 flex flex-col sm:flex-row items-center justify-between gap-10`}>
             <div className="">
                 <h2 className='text-sm md:text-base lg:text-lg text-white/50'>
                     <span>&copy; All rights reserved 2025.</span>
@@ -52,7 +48,7 @@ ${isContainerVisible ? "opacity-100 animate-slideUp" : ""}`}>
                 }
             </div>
 
-        </div>
+        </motion.div>
     )
 }
 
