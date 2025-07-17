@@ -14,7 +14,7 @@ interface FormData {
     message: string;
 }
 
-const page = () => {
+const Page = () => {
 
     // necessary functions for form handling using react-hook-form
     const {
@@ -39,8 +39,8 @@ const page = () => {
             alert('Message sent successfully!!');
             reset();
         }
-        catch (error) {
-            alert('Error submitting the form, please try again later!!')
+        catch {
+            alert('Error submitting the form, please try again later!!');
         }
     }
 
@@ -53,7 +53,7 @@ const page = () => {
                 {/* Glowing Orbs */}
                 <GlowingOrbs />
                 <div className='w-full lg:w-[60%] flex flex-col items-start px-3 py-4 rounded-xl z-10 font-poppins'>
-                    <h1 className='text-lg mx-auto pb-1 font-semibold [letter-spacing:1px] sm:text-xl lg:text-lg xl:text-xl'>Let's get in touch🤝</h1>
+                    <h1 className='text-lg mx-auto pb-1 font-semibold [letter-spacing:1px] sm:text-xl lg:text-lg xl:text-xl'>{"Let's get in touch🤝"}</h1>
                     <div className='w-full mt-8 flex flex-col gap-3 sm:text-base lg:text-sm xl:text-base'>
                         <label className='inline-flex items-center gap-1'>Full Name<span><CgProfile className='size-3.5' /></span></label>
                         <input id='name' type="text" className='w-full border-b border-b-emerald-300 focus:outline-none px-1 pb-0.5' placeholder='John Doe'
@@ -121,4 +121,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

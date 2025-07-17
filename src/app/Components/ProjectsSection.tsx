@@ -77,7 +77,7 @@ const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
                 className={`text-2xl md:text-3xl font-semibold text-center [word-spacing:8px] tracking-wide`}>MY PROJECTS</motion.h1>
             <div className='pb-10 pt-10 text-white/90'>
                 {
-                    projects.map((project, idx) => (
+                    projects.map((project) => (
                         <motion.div key={project.id}
                             // ref={
                             //     (el) => {

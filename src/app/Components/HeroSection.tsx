@@ -66,7 +66,7 @@ const HeroSection = () => {
                         xl:text-lg font-semibold z-20">
                         <button className=" sm:w-auto flex cursor-pointer bg-white/80 text-gray-900/90 rounded-xl px-3 xl:px-6 items-center gap-2 h-12
                             hover:scale-[1.05] transition-all duration-500">
-                            <span>Let's Connect</span>
+                            <span>{"Let's Connect"}</span>
                             <FaRegHandshake size={25} className="inline" />
                         </button>
                         <button className="hover:scale-[1.05] transition-all duration-500 sm:w-auto text-white/80 flex cursor-pointer ring-1 ring-gray-500/50 rounded-xl px-3

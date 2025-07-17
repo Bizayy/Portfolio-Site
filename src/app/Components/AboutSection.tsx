@@ -216,7 +216,7 @@ const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement
                         <CardHeader icon={<BiCycling className='size-7' />} title='Apart from code' desc='Know what I do besides programming' />
 
                         <div ref={containerRef} className=' relative w-full h-full'>
-                            {hobbies.map((item, idx) => (
+                            {hobbies.map((item) => (
                                 <motion.div key={item.title} className='inline-flex flex-none px-3 py-1.5 gap-2 rounded-full bg-gradient-to-r from-emerald-300
                                 to-sky-400 text-sm cursor-grab absolute' style={{
                                         left: item.left,
