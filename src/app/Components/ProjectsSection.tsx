@@ -117,7 +117,7 @@ const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
 
                                 <h1 className='text-2xl md:text-3xl lg:text-2xl xl:text-4xl font-semibold font-openSans my-4'>{project.title}</h1>
                                 <hr className='text-emerald-800' />
-                                <Image src={project.imgSrc} alt={project.title} width={1000} height={1000} className='my-7 w-[300px] sm:w-[400px] h-[200px] sm:h-[250px] rounded-lg image-contain
+                                <Image src={project.imgSrc} alt={project.title} width={1024} height={688} className='my-7 w-[300px] sm:w-[400px] h-[200px] sm:h-[250px] rounded-lg image-contain
                                 md:w-[550px] md:h-[350px] lg:hidden' />
 
                                 <ul className='text-sm md:text-base xl:text-lg lg:mt-4 text-white/80 mb-4 flex flex-col items-start justify-between gap-4'>
