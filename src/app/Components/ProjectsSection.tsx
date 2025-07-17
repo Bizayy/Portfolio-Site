@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
+// import { useEffect, useRef, useState } from 'react'
 import projects from '../Utils/projects'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -86,6 +87,7 @@ const ProjectsSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElem
                             // className={`w-full my-20 h-[670px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
                             //     drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 overflow-clip lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8
                             //     mx-auto z-20 opacity-0 ${inViewStates[idx] ? "opacity-100 animate-slideUp" : ""}`}}
+
                             className={`w-full my-20 h-[670px] sm:h-[650px] md:h-[760px] lg:h-[400px] max-w-[432px] xl:h-[500px] md:max-w-[700px] lg:max-w-[800px] xl:max-w-[950px] border-2 border-emerald-800/80 rounded-md py-7 px-5
                             drop-shadow-white drop-shadow-md/25 bg-[#2b2b2b]/90 overflow-clip lg:flex items-start justify-start gap-24 lg:pb-0 lg:pr-0 lg:pl-8
                             mx-auto z-20`}

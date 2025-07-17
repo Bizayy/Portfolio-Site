@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef } from 'react'
+// import { useEffect, useState } from 'react'
 import CardHeader from './CardHeader'
 import { FaTools } from 'react-icons/fa'
 import JavaScriptIcon from '@/assets/icons/square-js.svg'
@@ -10,9 +11,11 @@ import ChromeIcon from '@/assets/icons/chrome.svg'
 import TechIcon from './TechIcon'
 import { BiCycling } from 'react-icons/bi';
 import { motion } from 'framer-motion'
+
 // import gsap from 'gsap'
 // import { Draggable, InertiaPlugin } from 'gsap/all'
 
+// gsap.registerPlugin(Draggable, InertiaPlugin);
 
 const toolboxItems = [
     {
@@ -80,11 +83,10 @@ const hobbies = [
     }
 ]
 
-// gsap.registerPlugin(Draggable, InertiaPlugin);
 const AboutSection = ({ scrollRef }: { scrollRef: React.RefObject<HTMLDivElement | null> }) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
-    const itemRefs = useRef<HTMLDivElement[]>([]);
+    // const itemRefs = useRef<HTMLDivElement[]>([]);
 
     //Commenting out so that in case in future if I want to do using Gsap, I can refer to these
 

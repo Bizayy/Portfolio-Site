@@ -46,20 +46,6 @@
         }
     }
 
-    --animate-slideUp: slideUp 1s ease-in-out;
-
-    @keyframes slideUp {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
     --animate-slideRight: slideRight 1s ease-in-out;
 
     @keyframes slideRight {
@@ -101,12 +87,6 @@
     }
 
 }
-
-/*.hero-glow { */
-*/
-/*     @apply w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center, rgba(242, 224, 223, 0.9)_0%, rgba(242, 224, 223, 0.3)_40%, transparent_60%)] absolute; */
-/* } */
-
 
 html,
 body {
