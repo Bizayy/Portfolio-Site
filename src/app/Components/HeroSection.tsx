@@ -4,9 +4,10 @@ import { GoArrowDown } from "react-icons/go"
 import HeroOrbit from "./HeroOrbit"
 import { motion } from "framer-motion"
 
-
-const HeroSection = () => {
-
+const HeroSection = ({ onScrollToContact, onScrollToProjects, }: {
+    onScrollToContact: () => void;
+    onScrollToProjects: () => void;
+}) => {
 
     const renderLetters = (name: string) => {
         if (!name) return;
@@ -65,12 +66,12 @@ const HeroSection = () => {
                     <div className="w-full flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-14 lg:gap-10 text-sm sm:text-base
                         xl:text-lg font-semibold z-20">
                         <button className=" sm:w-auto flex cursor-pointer bg-white/80 text-gray-900/90 rounded-xl px-3 xl:px-6 items-center gap-2 h-12
-                            hover:scale-[1.05] transition-all duration-500">
+                            hover:scale-[1.05] transition-all duration-500" onClick={onScrollToContact}>
                             <span>{"Let's Connect"}</span>
                             <FaRegHandshake size={25} className="inline" />
                         </button>
                         <button className="hover:scale-[1.05] transition-all duration-500 sm:w-auto text-white/80 flex cursor-pointer ring-1 ring-gray-500/50 rounded-xl px-3
-                            xl:px-6 gap-2 items-center h-12">
+                            xl:px-6 gap-2 items-center h-12" onClick={onScrollToProjects}>
                             <span>Explore my works</span>
                             <GoArrowDown size={25} className="inline" />
                         </button>
