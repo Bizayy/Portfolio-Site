@@ -26,7 +26,7 @@ export default function Home() {
         contactRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
     return (
-        <div className="bg-[#16161a] min-h-screen text-white relative overflow-x-hidden" ref={homeRef}>
+        <div className="bg-[#16161a] min-h-screen text-white relative overflow-hidden" ref={homeRef}>
             <div id="#home" className="w-3/4 max-w-3/4 h-full mx-auto" >
                 <Header
                     onScrollToProjects={scrollToProjects}
