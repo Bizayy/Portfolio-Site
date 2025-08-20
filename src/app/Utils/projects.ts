@@ -1,6 +1,19 @@
 const projects = [
     {
         id: 1,
+        main: 'Practice Task',
+        title: 'Purple Pour',
+        year: '2025',
+        imgSrc: '/purplePour.png',
+        link: 'https://purple-pour.vercel.app/',
+        descriptionArray: [
+            { title: 'An Interactive page featuring the drinks' },
+            { title: 'Animated landing page made with GSAP' },
+            { title: 'User-friendly and responsive UI' },
+        ]
+    },
+    {
+        id: 2,
         main: 'Semester Project',
         title: 'an Automated Election Analysis System UI',
         year: '2024',
@@ -13,7 +26,7 @@ const projects = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         main: 'Internship Task',
         title: 'Valentines Wishing Site',
         year: '2024',
@@ -25,7 +38,7 @@ const projects = [
             { title: 'First internship task' },
         ]
     }, {
-        id: 3,
+        id: 4,
         main: 'Internship Task',
         title: "Remaking the ABSSoft's Homepage",
         year: '2024',
