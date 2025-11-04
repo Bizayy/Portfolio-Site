@@ -114,7 +114,8 @@ const Page = () => {
                     </button>
                 </div>
                 <div className='hidden lg:block lg:w-[35%]'>
-                    <Image src='/personCoding.webp' alt='personCoding' priority width={800} height={1200} className='w-full h-full object-cover grayscale' />
+                    <Image src='/personCoding.webp' alt='personCoding' priority width={800} height={1200}
+                        placeholder='blur' blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRg...' className='w-full h-full object-cover grayscale' />
                 </div>
             </div>
         </form>
