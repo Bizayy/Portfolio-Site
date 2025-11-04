@@ -114,7 +114,7 @@ const Page = () => {
                     </button>
                 </div>
                 <div className='hidden lg:block lg:w-[35%]'>
-                    <Image src='/personCoding.jpg' alt='personCoding' width={3456} height={5184} className='w-full h-full object-cover grayscale' />
+                    <Image src='/personCoding.webp' alt='personCoding' priority width={800} height={1200} className='w-full h-full object-cover grayscale' />
                 </div>
             </div>
         </form>
