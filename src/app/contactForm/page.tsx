@@ -6,6 +6,7 @@ import { SiGmail } from 'react-icons/si';
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import GlowingOrbs from './FormComponents/GlowingOrbs';
+import personCoding from '../../../public/personCoding.webp'
 
 // form data structure
 interface FormData {
@@ -114,8 +115,8 @@ const Page = () => {
                     </button>
                 </div>
                 <div className='hidden lg:block lg:w-[35%]'>
-                    <Image src='/personCoding.webp' alt='personCoding' priority width={800} height={1200}
-                        placeholder='blur' blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRg...' className='w-full h-full object-cover grayscale' />
+                    <Image src={personCoding} alt='personCoding' priority width={800} height={1200}
+                        placeholder='blur' className='w-full h-full object-cover grayscale' />
                 </div>
             </div>
         </form>
